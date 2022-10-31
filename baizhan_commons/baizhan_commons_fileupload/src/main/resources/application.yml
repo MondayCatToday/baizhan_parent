@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  profiles:
+    active: commonspojo
+  application:
+    name: baizhan-uploadfile
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.137.128:8761/eureka/
+  instance:
+    prefer-ip-address: true

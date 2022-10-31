@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="baizhan_frontend_trade" />
+        <module name="baizhan_frontend_cart" />
+        <module name="baizhan_frontend_search" />
+        <module name="baizhan_commons_utils" />
+        <module name="baizhan_frontend_portal" />
+        <module name="baizhan_commons_email" />
+        <module name="baizhan_commons_rabbitmq" />
+        <module name="baizhan_commons_session" />
+        <module name="baizhan_mapper_user" />
+        <module name="baizhan_frontend_details" />
+        <module name="baizhan_mapper_order" />
+        <module name="baizhan_commons_fileupload" />
+        <module name="baizhan_rabbitmq_receive" />
+        <module name="baizhan_commons_gateway" />
+        <module name="baizhan_mapper_content" />
+        <module name="baizhan_pojo_user" />
+        <module name="baizhan_commons_redis" />
+        <module name="baizhan_mapper_item" />
+        <module name="baizhan_backend_content" />
+        <module name="baizhan_frontend_passport" />
+        <module name="baizhan_pojo_order" />
+        <module name="baizhan_pojo_content" />
+        <module name="baizhan_commons_pojo" />
+        <module name="baizhan_pojo_item" />
+        <module name="baizhan_backend_item" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="baizhan_api" target="1.8" />
+      <module name="baizhan_api_cart" target="1.8" />
+      <module name="baizhan_api_content" target="1.8" />
+      <module name="baizhan_api_details" target="1.8" />
+      <module name="baizhan_api_email" target="1.8" />
+      <module name="baizhan_api_item" target="1.8" />
+      <module name="baizhan_api_search" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="baizhan_api" options="-parameters" />
+      <module name="baizhan_api_cart" options="-parameters" />
+      <module name="baizhan_api_content" options="-parameters" />
+      <module name="baizhan_api_details" options="-parameters" />
+      <module name="baizhan_api_email" options="-parameters" />
+      <module name="baizhan_api_item" options="-parameters" />
+      <module name="baizhan_api_search" options="-parameters" />
+      <module name="baizhan_backend" options="-parameters" />
+      <module name="baizhan_backend_content" options="-parameters" />
+      <module name="baizhan_backend_item" options="-parameters" />
+      <module name="baizhan_commons" options="-parameters" />
+      <module name="baizhan_commons_email" options="-parameters" />
+      <module name="baizhan_commons_fileupload" options="-parameters" />
+      <module name="baizhan_commons_gateway" options="-parameters" />
+      <module name="baizhan_commons_pojo" options="-parameters" />
+      <module name="baizhan_commons_rabbitmq" options="-parameters" />
+      <module name="baizhan_commons_redis" options="-parameters" />
+      <module name="baizhan_commons_session" options="-parameters" />
+      <module name="baizhan_commons_utils" options="-parameters" />
+      <module name="baizhan_frontend" options="-parameters" />
+      <module name="baizhan_frontend_cart" options="-parameters" />
+      <module name="baizhan_frontend_details" options="-parameters" />
+      <module name="baizhan_frontend_passport" options="-parameters" />
+      <module name="baizhan_frontend_portal" options="-parameters" />
+      <module name="baizhan_frontend_search" options="-parameters" />
+      <module name="baizhan_frontend_trade" options="-parameters" />
+      <module name="baizhan_mapper" options="-parameters" />
+      <module name="baizhan_mapper_content" options="-parameters" />
+      <module name="baizhan_mapper_item" options="-parameters" />
+      <module name="baizhan_mapper_order" options="-parameters" />
+      <module name="baizhan_mapper_user" options="-parameters" />
+      <module name="baizhan_middleware" options="-parameters" />
+      <module name="baizhan_parent" options="-parameters" />
+      <module name="baizhan_pojo" options="-parameters" />
+      <module name="baizhan_pojo_content" options="-parameters" />
+      <module name="baizhan_pojo_item" options="-parameters" />
+      <module name="baizhan_pojo_order" options="-parameters" />
+      <module name="baizhan_pojo_user" options="-parameters" />
+      <module name="baizhan_rabbitmq_receive" options="-parameters" />
+    </option>
+  </component>
+</project>

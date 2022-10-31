@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: contentmapper,rabbitmq,redis,commonspojo
+  application:
+    name: baizhan-backend-content
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.137.128:8761/eureka/
+  instance:
+    prefer-ip-address: true

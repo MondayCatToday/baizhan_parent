@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: itemmapper,rabbitmq,redis,commonspojo
+  application:  # 必要配置。
+    name: baizhan-backend-item
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.137.128:8761/eureka/
+  instance: # 可选配置
+    prefer-ip-address: true  # 注册和发现的时候，优先使用IP。默认优先使用主机名
+
+# tx-lcn配置
+tx-lcn:
+  client:
+    manager-address: 192.168.137.128:8070

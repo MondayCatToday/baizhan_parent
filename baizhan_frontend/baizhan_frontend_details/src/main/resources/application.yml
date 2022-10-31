@@ -1,0 +1,13 @@
+server:
+  port: 8085
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.137.128:8761/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  profiles:
+    active: itemmapper,redis,commonspojo
+  application:
+    name: baizhan-frontend-details

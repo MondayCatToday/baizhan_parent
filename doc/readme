@@ -1,0 +1,3 @@
+项目导入后修改如下
+    baizhan_mapper 下所有子项目的配置文件中JDBC相关参数修改。url、username、password
+    baizhan_commons_rabbitmq 配置文件中rabbitmq的用户名和密码
