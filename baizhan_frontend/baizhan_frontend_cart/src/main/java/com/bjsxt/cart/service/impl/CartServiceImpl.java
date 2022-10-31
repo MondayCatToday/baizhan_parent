@@ -29,7 +29,6 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 删除商品
-     *
      * @param itemId
      * @param session
      * @return
@@ -37,14 +36,15 @@ public class CartServiceImpl implements CartService {
     @Override
     public BaizhanResult deleteItemFromCart(Long itemId, HttpSession session) {
         // 查询购物车
-        Cart cart = redisDao.get(keyPrefix +
-                ((TbUser) session.getAttribute("user")).getId());
+        Cart cart =
+                redisDao.get(keyPrefix +
+                        ((TbUser) session.getAttribute("user")).getId());
 
         // 删除购物车中的商品
         cart.deleteFromCart(itemId);
 
         // 把修改后的购物车保存到Redis中
-        redisDao.set(keyPrefix + ((TbUser) session.getAttribute("user")).getId(),
+        redisDao.set(keyPrefix+((TbUser) session.getAttribute("user")).getId(),
                 cart);
 
         return BaizhanResult.ok();
@@ -52,7 +52,6 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 修改购物车中商品购买数量
-     *
      * @param itemId
      * @param num
      * @param session
@@ -66,7 +65,7 @@ public class CartServiceImpl implements CartService {
         // 修改商品的购买数量。
         cart.updateNum(itemId, num);
         // 把修改后的购物车数据保存到Redis中。
-        redisDao.set(keyPrefix + ((TbUser) session.getAttribute("user")).getId(),
+        redisDao.set(keyPrefix+((TbUser)session.getAttribute("user")).getId(),
                 cart);
 
         return BaizhanResult.ok();
@@ -76,20 +75,19 @@ public class CartServiceImpl implements CartService {
      * 增加商品到购物车
      * 客户端传递的只有商品的主键和购买的数量。
      * 如何查询商品的完整数据？
-     * 从MySQL查询，数据最准确，效率相对较低。
-     * 从Redis查询，数据可能有延迟，效率相对较高。 选用方案。
+     *  从MySQL查询，数据最准确，效率相对较低。
+     *  从Redis查询，数据可能有延迟，效率相对较高。 选用方案。
      * 因为，当前逻辑的前置条件是，客户查看商品详情，redis中一定有商品缓存数据。
-     *
      * @param itemId 商品主键
-     * @param num    商品数量。
+     * @param num 商品数量。
      * @return
      */
     @Override
     public BaizhanResult addItem2Cart(Long itemId, int num, HttpSession session) {
         // 从redis中查询商品数据
-        TbItem item = redisDao.get(itemKeyPrefix + itemId);
+        TbItem item = redisDao.get(itemKeyPrefix+itemId);
         // 商品有没有可能不存在？
-        if (item == null) {
+        if(item == null){
             // 商品不存在，后台系统可能下架或删除商品。
             return BaizhanResult.error("商品已下架");
         }
@@ -102,11 +100,11 @@ public class CartServiceImpl implements CartService {
 
         // 查询购物车对象
         Cart cart =
-                redisDao.get(keyPrefix + ((TbUser) session.getAttribute("user")).getId());
+                redisDao.get(keyPrefix + ((TbUser)session.getAttribute("user")).getId());
         // 判断购物车是否存在
-        if (cart == null) {
+        if(cart == null){
             cart = new Cart();
-            redisDao.set(keyPrefix + ((TbUser) session.getAttribute("user")).getId(),
+            redisDao.set(keyPrefix+((TbUser) session.getAttribute("user")).getId(),
                     cart);
         }
 
@@ -114,7 +112,7 @@ public class CartServiceImpl implements CartService {
         cart.add2Cart(cartItem);
 
         // 把新的购物车保存到Redis中。刷新数据
-        redisDao.set(keyPrefix + ((TbUser) session.getAttribute("user")).getId(),
+        redisDao.set(keyPrefix+((TbUser) session.getAttribute("user")).getId(),
                 cart);
         return BaizhanResult.ok();
     }
@@ -123,10 +121,10 @@ public class CartServiceImpl implements CartService {
      * 查看购物车列表
      * 购物车数据是基于自定义的RedisDao做读写访问。
      * 购物车在Redis中的key，使用前缀+登录用户主键定义。
-     * <p>
+     *
      * 思考：在查看购物车列表数据时，如何界定购物车中的商品的状态。
-     * 如：购物车中的商品已经下架或删除，应该如何处理？
-     * 如：购物车中的商品库存为0，或小于预购数量，应该如何处理？
+     *  如：购物车中的商品已经下架或删除，应该如何处理？
+     *  如：购物车中的商品库存为0，或小于预购数量，应该如何处理？
      *
      * @param session
      * @return
@@ -140,7 +138,7 @@ public class CartServiceImpl implements CartService {
         // 使用RedisDao，查询Redis中的购物车数据
         Cart cart = redisDao.get(key);
 
-        if (cart == null) {
+        if(cart == null){
             // 未使用过购物车，用户无购物车。
             // 初始化一个空的购物车，并保存到Redis中。
             cart = new Cart();
